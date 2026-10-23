@@ -96,6 +96,59 @@
         </LinearLayout>
 
     </LinearLayout>
+    <!-- Banner pengumuman dengan framelayout-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginBottom="24dp">
+
+        <!--layer 1:Background lapisan belakang-->
+     <View
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:background="#0984E3"/>
+
+         <!--layer2:TEKS pengumuman lapisan-->
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="vertical"
+               android:padding="16dp"
+               android:gravity="center_vertical">
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="PENGUMUMAN PENTING"
+                   android:textSize="11sp"
+                   android:textColor="#0FE6E9"
+                   android:textStyle="bold"/>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Ujian kompetensi RPL Dimulai hari jumat ini"
+                   android:textSize="14sp"
+                   android:textStyle="bold"
+                   android:textColor="#FFFFFF"
+                   android:layout_marginTop="4dp"/>
+
+           </LinearLayout>
+    </FrameLayout>
+
+
+    <!--tombol untuk ke halaman from-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/TombolForm"
+        android:text="Tambah Tugas"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#0984E3"
+        android:layout_marginTop="14dp"
+        android:textSize="14sp"
+        android:textStyle="bold"/>
+
 
     <!-- Bagian judul: Daftar Tugas Terbaru -->
     <TextView

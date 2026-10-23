@@ -1,19 +1,20 @@
 plugins {
     alias(libs.plugins.android.application)
+    id (com.android.application)
+    id  (org.jetbrains.kotlin.android)
+    id (com.google.devtools.ksp)
 }
 
 android {
     namespace = "com.example.managementapp"
     compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
+        version = release(37)
     }
 
     defaultConfig {
         applicationId = "com.example.managementapp"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
 
@@ -22,16 +23,19 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+            optimization {
+                enable = true
+                packageScope = setOf("androidx.**", "kotlin.**", "kotlinx.**")
+            }
         }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 }
 
@@ -44,4 +48,11 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
+    //gradle room
+    def room_version="2.6.1"
+    implementation(androidx.room:room-runtime:$roomVersion)
+    implementation(androidx.room:room-ktx:$roomVersion)
+
+    //kompiler room
+    ksp (androidx.room:room-compiler:$roomVersion)
 }
